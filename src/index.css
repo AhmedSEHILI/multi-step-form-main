@@ -4,7 +4,7 @@
 
 .Cmp:hover .CmpChild{
   background-color: Lightblue;
-  color: bl;
+  color: black;
   border-color: lightblue;
 }
 
@@ -18,3 +18,4 @@ p {
   font-weight: 300;
   font-size: 24px;
 }
+
