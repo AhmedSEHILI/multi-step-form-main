@@ -17,5 +17,5 @@ module.exports = {
      'Strawberryred': 'hsl(354, 84%, 57%)'
     }
   },
-  plugins: [require("daisyui")],
+  plugins: [],
 }

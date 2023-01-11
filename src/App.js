@@ -9,7 +9,6 @@ function App() {
     <BrowserRouter>
       <Routes>
           <Route path="/" element={<Layout />} >
-          {/* <Route path="/" > */}
             <Route index element={<Infos />}/>
             <Route path="plan" element={<Plan />}/>
           </Route>

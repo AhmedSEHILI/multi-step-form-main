@@ -7,7 +7,7 @@ function Layout(props) {
     return (
         <div className="flex flex-row gap-20 w-screen">
             <SideBar />
-            <Outlet />
+            <div className="pl-56 pt-20"><Outlet /></div>
         </div>
     );
 }
