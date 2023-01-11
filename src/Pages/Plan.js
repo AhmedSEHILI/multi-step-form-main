@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BackBtn from '../Comps/BackBtn';
 import CardPlan from '../Comps/CardPlan';
 import NextBtn from '../Comps/NextBtn';
@@ -14,6 +14,14 @@ function Plan(props) {
 
     ];
 
+    const [Toggle, setToggle] = useState(false);
+
+    const Toggling = (isToggled) => {
+        setToggle(isToggled);
+    }
+
+    console.log(Toggle);
+
     return (
         <div className="flex flex-col gap-20 w-[800px]">
             <div className="">
@@ -27,7 +35,7 @@ function Plan(props) {
             </div>
             <div className="flex flex-row items-center justify-center gap-8 py-2 rounded-lg bg-Marineblue bg-opacity-5">
                 <h2 className="text-lg">Monthly</h2>
-                <PlanToggle />
+                <PlanToggle Toggle={Toggle} Toggling={Toggling}/>
                 <h2 className="text-lg">Yearly</h2>
             </div>
             <div className="flex flex-row justify-between pt-20">

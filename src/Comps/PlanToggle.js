@@ -4,7 +4,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 
 
-function PlanToggle(props) {
+function PlanToggle({Toggle, Toggling}) {
 
     const IOSSwitch = styled((props) => (
     <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -57,15 +57,16 @@ function PlanToggle(props) {
         },
       }));
 
-      const handleChange = (event) => {
-        console.log("vf");
+      const handleChange = () => {
+        Toggling(!Toggle);
       }
 
     return (
         <div className="pl-4">
             <FormControlLabel
                 control={<IOSSwitch sx={{ m: 1 }} />}
-                onChange={handleChange}
+                // onChange
+                // onClick={handleChange}
             />
         </div>
     );
