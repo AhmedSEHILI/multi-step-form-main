@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
@@ -7,7 +7,7 @@ import Switch from '@mui/material/Switch';
 function PlanToggle({Toggle, Toggling}) {
 
     const IOSSwitch = styled((props) => (
-    <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
+    <Switch value={Toggle} focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
       ))(({ theme }) => ({
         width: 54,
         height: 30,
@@ -61,12 +61,13 @@ function PlanToggle({Toggle, Toggling}) {
         Toggling(!Toggle);
       }
 
+      
     return (
         <div className="pl-4">
             <FormControlLabel
                 control={<IOSSwitch sx={{ m: 1 }} />}
-                // onChange
-                // onClick={handleChange}
+                onChange={handleChange}
+                checked={Toggle}
             />
         </div>
     );

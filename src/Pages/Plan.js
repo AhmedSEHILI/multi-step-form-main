@@ -8,19 +8,20 @@ import PlanToggle from '../Comps/PlanToggle';
 function Plan(props) {
 
     const Plans = [
-        {Icon:"./icon-arcade.svg", Title: "Arcade", Price: "9"},
-        {Icon:"./icon-advanced.svg", Title: "Advanced", Price: "12"},
-        {Icon:"./icon-pro.svg", Title: "Pro", Price: "15"},
+        {Icon:"./icon-arcade.svg", Title: "Arcade", PriceMo: "9", PriceYe: "80", key: 1},
+        {Icon:"./icon-advanced.svg", Title: "Advanced", PriceMo: "12", PriceYe: "90", key: 2},
+        {Icon:"./icon-pro.svg", Title: "Pro", PriceMo: "15", PriceYe: "100", key: 3},
 
     ];
 
     const [Toggle, setToggle] = useState(false);
 
-    const Toggling = (isToggled) => {
-        setToggle(isToggled);
-    }
 
-    console.log(Toggle);
+    // const Toggling = (isToggled) => {
+    //     setToggle(isToggled);
+    // }
+
+
 
     return (
         <div className="flex flex-col gap-20 w-[800px]">
@@ -30,12 +31,16 @@ function Plan(props) {
             </div>
             <div className="flex flex-row gap-14">
                 {Plans.map((Plan) =>
-                    <CardPlan Icon = {Plan.Icon} Title = {Plan.Title} Price = {Plan.Price}/>
+                    Toggle 
+                    ? <CardPlan Icon = {Plan.Icon} Title = {Plan.Title} Price = {Plan.PriceYe + "/Ye"} Idd = {Plan.key} len = {Plans.length}/>
+                    : <CardPlan Icon = {Plan.Icon} Title = {Plan.Title} Price = {Plan.PriceMo + "/Mo"} Idd = {Plan.key} len = {Plans.length}/>
+                    
+                    
                 )}
             </div>
             <div className="flex flex-row items-center justify-center gap-8 py-2 rounded-lg bg-Marineblue bg-opacity-5">
                 <h2 className="text-lg">Monthly</h2>
-                <PlanToggle Toggle={Toggle} Toggling={Toggling}/>
+                <PlanToggle Toggle={Toggle} Toggling={setToggle}/>
                 <h2 className="text-lg">Yearly</h2>
             </div>
             <div className="flex flex-row justify-between pt-20">

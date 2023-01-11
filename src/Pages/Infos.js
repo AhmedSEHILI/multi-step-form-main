@@ -15,11 +15,11 @@ function Infos(props) {
                 <Input Label={"Email Address"} Holder={"Example@email.com"}/>
                 <Input Label={"Phone Number"} Holder={"eg : +213 0696212314"}/>
                 </div>
-                <Link to = "plan">
-                <button className="w-full flex flex-row-reverse pt-[130px]">
-                    <NextBtn />
-                </button>
-                </Link>
+                <div className=" w-full flex flex-row-reverse pt-[130px]">
+                    <Link to = "plan">
+                        <NextBtn />
+                    </Link>
+                </div>
         </div>
     );
 }
