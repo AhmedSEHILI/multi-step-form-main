@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import BackBtn from '../Comps/BackBtn';
 import CardPlan from '../Comps/CardPlan';
 import NextBtn from '../Comps/NextBtn';
 import PlanToggle from '../Comps/PlanToggle';
+import { MyContext } from '../App.js';
 
 
 function Plan(props) {
@@ -15,11 +16,11 @@ function Plan(props) {
     ];
 
     const [Toggle, setToggle] = useState(false);
+    const { value, setValue } = useContext(MyContext);
 
-
-    // const Toggling = (isToggled) => {
-    //     setToggle(isToggled);
-    // }
+    const handlemince = () => {
+        setValue(()=>{return value-1});
+    }
 
 
 
@@ -29,7 +30,7 @@ function Plan(props) {
                 <h2 className="">Select your plan</h2>
                 <p className="text-black text-opacity-40 font-semibold">You have the option of monthly or yearly billing</p>
             </div>
-            <div className="flex flex-row gap-14">
+            <div className="flex flex-row gap-20">
                 {Plans.map((Plan) =>
                     Toggle 
                     ? <CardPlan Icon = {Plan.Icon} Title = {Plan.Title} Price = {Plan.PriceYe + "/Ye"} Idd = {Plan.key} len = {Plans.length}/>
@@ -44,8 +45,11 @@ function Plan(props) {
                 <h2 className="text-lg">Yearly</h2>
             </div>
             <div className="flex flex-row justify-between pt-20">
-                <BackBtn />
-                <NextBtn />
+                <div onClick={handlemince}>
+                  <BackBtn linkto={"/"} />
+                </div>
+                
+                <NextBtn linkto={"/addons"}/>
             </div>
         </div>
     );

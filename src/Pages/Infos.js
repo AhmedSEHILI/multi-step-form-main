@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import NextBtn from '../Comps/NextBtn';
 import Input from '../Comps/Input';
 import { Link } from 'react-router-dom';
+import { MyContext } from '../App.js';
+
 
 function Infos(props) {
+
 
     function containsOnlySpaces(str) {
         return str.trim().length > 0;
@@ -15,20 +18,25 @@ function Infos(props) {
 
     const [isEmpty, setEmpty] = useState(true);
 
+    const { value, setValue } = useContext(MyContext);
 
     const handleClick = () => {
         const tab = [value1, value2, value3];
         if (containsOnlySpaces(value1) && containsOnlySpaces(value2) && containsOnlySpaces(value3)) {setEmpty(false)}
         // setEmpty(!tab.every(containsOnlySpaces));
 
-        console.log(isEmpty);
+        setValue(()=>{return value+1});
+
+        console.log(value);
+
+        
 
         // tab.every(containsOnlySpaces);
             // containsOnlySpaces(value) ? setEmpty(true) : setEmpty(false)
     }
 
     return (
-        <div className="flex flex-col gap-20 w-[60%]">
+        <div className="flex flex-col gap-20 w-[67.2%]">
                 <div className="">
                     <h2 className="">Personal info</h2>
                     <p className="text-black text-opacity-40 font-semibold">Please provide your name, email adress, and phone number.</p>
@@ -39,9 +47,9 @@ function Infos(props) {
                 <Input setValue ={setValue3} Label={"Phone Number"} Holder={"eg : +213 0696212314"} ID={3}/>
                 </div>
                 <div className=" w-full flex flex-row-reverse pt-[130px]">
-                    <Link onClick={handleClick} to = "">
-                        <NextBtn />
-                    </Link>
+                    <div onClick={handleClick}>
+                        <NextBtn linkto={"plan"}/>
+                    </div>
                 </div>
         </div>
     );
